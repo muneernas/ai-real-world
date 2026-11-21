@@ -11,10 +11,10 @@ export default function App() {
   const Slide = slideComponents[index]
 
   const sectionOn = (name: string) => {
-    if (name === 'Hook') return index <= 2
-    if (name === 'Cases') return index >= 3 && index <= 8
-    if (name === 'Activity') return index >= 9 && index <= 13
-    if (name === 'Close') return index >= 14
+    if (name === 'Hook') return index <= 1
+    if (name === 'Cases') return index >= 2 && index <= 6
+    if (name === 'Activity') return index >= 7 && index <= 8
+    if (name === 'Close') return index === 9
     return false
   }
 

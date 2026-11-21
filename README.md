@@ -1,6 +1,6 @@
 # AI in the Real World — Interactive Lesson
 
-Grade 9–10 case-study lesson (~40 minutes): where AI actually matters across industries, then group **AI consultant** briefings.
+Grade 9–10 case-study lesson (~10 slides): five industries where AI matters, then short group **AI consultant** briefings.
 
 ## Industries
 
