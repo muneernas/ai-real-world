@@ -1,28 +1,28 @@
 :root {
-  --bg: #070708;
-  --bg-elevated: #101114;
-  --surface: #16171c;
-  --surface-2: #1e2028;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 187, 51, 0.35);
-  --gold: #ffbb33;
-  --gold-deep: #e5a01f;
-  --gold-soft: #ffd658;
-  --gold-dim: rgba(255, 187, 51, 0.14);
-  --text: #f4f4f5;
-  --text-muted: #9a9aa3;
-  --text-dim: #6b6b75;
-  --danger: #ff5c6c;
-  --ok: #3dd68c;
-  --blue: #5b8cff;
-  --cyan: #4fd1c5;
-  --shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+  --bg: #f6f4ef;
+  --bg-elevated: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #efebe3;
+  --border: rgba(17, 17, 17, 0.1);
+  --border-strong: rgba(196, 146, 20, 0.45);
+  --gold: #c49214;
+  --gold-deep: #a6780f;
+  --gold-soft: #e5b53a;
+  --gold-dim: rgba(196, 146, 20, 0.12);
+  --text: #151515;
+  --text-muted: #5c5c5c;
+  --text-dim: #818181;
+  --danger: #c62828;
+  --ok: #1b7a4a;
+  --blue: #2f5fbf;
+  --cyan: #0f766e;
+  --shadow: 0 18px 50px rgba(20, 16, 8, 0.08);
   --radius: 18px;
   --radius-sm: 12px;
   --font-display: "Syne", system-ui, sans-serif;
   --font-body: "Outfit", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
-  --slide-pad: clamp(1.25rem, 3.5vw, 3rem);
+  --slide-pad: clamp(1.1rem, 3vw, 2.5rem);
 }
 
 *,
@@ -64,8 +64,8 @@ button:focus-visible {
   display: grid;
   grid-template-rows: auto 1fr auto;
   background:
-    radial-gradient(ellipse 70% 45% at 50% -8%, rgba(255, 187, 51, 0.1), transparent 55%),
-    radial-gradient(ellipse 35% 35% at 100% 100%, rgba(91, 140, 255, 0.08), transparent 50%),
+    radial-gradient(ellipse 70% 45% at 50% -10%, rgba(196, 146, 20, 0.16), transparent 55%),
+    radial-gradient(ellipse 40% 35% at 100% 100%, rgba(47, 95, 191, 0.08), transparent 50%),
     var(--bg);
 }
 
@@ -75,9 +75,8 @@ button:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.7rem var(--slide-pad);
-  border-color: var(--border);
-  background: rgba(7, 7, 8, 0.82);
+  padding: 0.65rem var(--slide-pad);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(12px);
   z-index: 5;
 }
@@ -100,8 +99,8 @@ button:focus-visible {
   width: 28px;
   height: 28px;
   border-radius: 8px;
-  background: linear-gradient(135deg, var(--gold), var(--blue));
-  box-shadow: 0 0 24px rgba(255, 187, 51, 0.3);
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold-deep));
+  box-shadow: 0 6px 18px rgba(196, 146, 20, 0.28);
 }
 
 .brand-text {
@@ -128,7 +127,7 @@ button:focus-visible {
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--gold-deep), var(--blue));
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold-soft));
   transition: width 0.35s ease;
 }
 
@@ -148,7 +147,7 @@ button:focus-visible {
   padding: 0.3rem 0.65rem;
   border-radius: 999px;
   background: var(--gold-dim);
-  color: var(--gold-soft);
+  color: var(--gold-deep);
   border: 1px solid var(--border-strong);
 }
 
@@ -165,7 +164,7 @@ button:focus-visible {
 
 .icon-btn:hover,
 .icon-btn.active {
-  color: var(--gold);
+  color: var(--gold-deep);
   border-color: var(--border-strong);
   background: var(--gold-dim);
 }
@@ -182,13 +181,14 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  animation: slideIn 0.4s ease both;
+  animation: slideIn 0.35s ease both;
+  overflow: auto;
 }
 
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -207,31 +207,32 @@ button:focus-visible {
 
 .slide-kicker {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--gold);
+  font-size: 0.78rem;
+  color: var(--gold-deep);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.55rem;
 }
 
 .slide-title {
   font-family: var(--font-display);
   font-weight: 800;
   letter-spacing: -0.04em;
-  line-height: 0.95;
-  font-size: clamp(2.2rem, 5.8vw, 4.6rem);
-  margin: 0 0 0.85rem;
+  line-height: 0.96;
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin: 0 0 0.7rem;
+  color: var(--text);
 }
 
 .slide-title.mid {
-  font-size: clamp(1.7rem, 4vw, 3rem);
+  font-size: clamp(1.55rem, 3.4vw, 2.5rem);
 }
 
 .slide-sub,
 .lead {
-  font-size: clamp(1.05rem, 2vw, 1.4rem);
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
   color: var(--text-muted);
-  max-width: 42ch;
+  max-width: 48ch;
   line-height: 1.45;
   margin: 0;
 }
@@ -247,23 +248,23 @@ button:focus-visible {
   color: var(--text-dim);
 }
 .gold {
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 0.85rem;
 }
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.85rem;
+  gap: 0.75rem;
 }
 .grid-5 {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0.75rem;
+  gap: 0.7rem;
 }
 
 @media (max-width: 1000px) {
@@ -271,19 +272,17 @@ button:focus-visible {
     grid-template-columns: repeat(2, 1fr);
   }
   .grid-2,
-  .grid-3 {
-    grid-template-columns: 1fr;
-  }
+  .grid-3,
   .industry-layout {
     grid-template-columns: 1fr !important;
   }
 }
 
 .card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent), var(--surface);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.1rem 1.2rem;
+  padding: 0.95rem 1.05rem;
   box-shadow: var(--shadow);
 }
 
@@ -304,9 +303,9 @@ button:focus-visible {
 }
 
 .card h3 {
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.3rem;
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.02rem;
   letter-spacing: -0.02em;
 }
 
@@ -314,6 +313,7 @@ button:focus-visible {
   margin: 0;
   color: var(--text-muted);
   line-height: 1.4;
+  font-size: 0.95rem;
 }
 
 .btn {
@@ -321,7 +321,7 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  padding: 0.75rem 1.2rem;
+  padding: 0.7rem 1.1rem;
   border-radius: 999px;
   font-weight: 600;
   border: 1px solid var(--border);
@@ -335,7 +335,7 @@ button:focus-visible {
 }
 
 .btn.primary {
-  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold-deep));
   color: #111;
   border-color: transparent;
 }
@@ -345,20 +345,20 @@ button:focus-visible {
 }
 
 .btn.yes {
-  background: rgba(61, 214, 140, 0.12);
-  border-color: rgba(61, 214, 140, 0.4);
+  background: rgba(27, 122, 74, 0.1);
+  border-color: rgba(27, 122, 74, 0.35);
   color: var(--ok);
 }
 
 .btn.no {
-  background: rgba(255, 92, 108, 0.12);
-  border-color: rgba(255, 92, 108, 0.4);
+  background: rgba(198, 40, 40, 0.08);
+  border-color: rgba(198, 40, 40, 0.3);
   color: var(--danger);
 }
 
 .btn.mixed {
-  background: rgba(91, 140, 255, 0.12);
-  border-color: rgba(91, 140, 255, 0.4);
+  background: rgba(47, 95, 191, 0.1);
+  border-color: rgba(47, 95, 191, 0.3);
   color: var(--blue);
 }
 
@@ -369,47 +369,44 @@ button:focus-visible {
 .row {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.7rem;
   flex-wrap: wrap;
 }
 
 .stack {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
 
 .mt-1 {
-  margin-top: 0.7rem;
+  margin-top: 0.6rem;
 }
 .mt-2 {
-  margin-top: 1.15rem;
-}
-.mt-3 {
-  margin-top: 1.6rem;
+  margin-top: 1rem;
 }
 .mb-1 {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.6rem;
 }
 .mb-2 {
-  margin-bottom: 1.15rem;
+  margin-bottom: 1rem;
 }
 
 .hint {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--text-dim);
-  margin-top: 0.85rem;
+  margin-top: 0.7rem;
 }
 
 .reveal {
-  animation: fadeUp 0.35s ease both;
+  animation: fadeUp 0.3s ease both;
 }
 
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
@@ -419,12 +416,12 @@ button:focus-visible {
 
 .quote-box {
   border-left: 3px solid var(--gold);
-  padding: 0.85rem 1.15rem;
+  padding: 0.8rem 1rem;
   background: var(--gold-dim);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  font-size: clamp(0.98rem, 1.7vw, 1.15rem);
   line-height: 1.4;
-  max-width: 48ch;
+  max-width: 52ch;
 }
 
 .hero-slide {
@@ -437,27 +434,27 @@ button:focus-visible {
   inset: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0.42;
-  filter: saturate(1.05) contrast(1.05);
+  opacity: 0.28;
+  filter: saturate(0.95);
 }
 
 .hero-bg::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(7, 7, 8, 0.92) 0%, rgba(7, 7, 8, 0.7) 48%, rgba(7, 7, 8, 0.35) 100%);
+  background: linear-gradient(90deg, rgba(246, 244, 239, 0.96) 0%, rgba(246, 244, 239, 0.82) 48%, rgba(246, 244, 239, 0.45) 100%);
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 720px;
+  max-width: 760px;
 }
 
 .industry-layout {
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 1.25rem;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 1rem;
   align-items: stretch;
   min-height: 0;
 }
@@ -467,7 +464,7 @@ button:focus-visible {
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
-  min-height: 280px;
+  min-height: 320px;
   background: var(--surface);
   box-shadow: var(--shadow);
 }
@@ -481,43 +478,45 @@ button:focus-visible {
 
 .industry-visual .overlay-label {
   position: absolute;
-  left: 1rem;
-  bottom: 1rem;
-  padding: 0.45rem 0.75rem;
+  left: 0.9rem;
+  bottom: 0.9rem;
+  padding: 0.4rem 0.7rem;
   border-radius: 999px;
-  background: rgba(7, 7, 8, 0.75);
-  border: 1px solid var(--border-strong);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--border);
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--gold-soft);
+  font-size: 0.72rem;
+  color: var(--gold-deep);
   backdrop-filter: blur(8px);
 }
 
 .tag-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
-  margin: 0.85rem 0 1rem;
+  gap: 0.4rem;
+  margin: 0.55rem 0 0.75rem;
 }
 
 .tag {
-  padding: 0.35rem 0.7rem;
+  padding: 0.3rem 0.65rem;
   border-radius: 999px;
   background: var(--surface-2);
   border: 1px solid var(--border);
-  font-size: 0.88rem;
+  font-size: 0.82rem;
+  color: var(--text);
 }
 
 .industry-card {
   position: relative;
   overflow: hidden;
-  min-height: 160px;
+  min-height: 170px;
   padding: 0;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
   cursor: pointer;
   text-align: left;
+  box-shadow: var(--shadow);
 }
 
 .industry-card img {
@@ -535,7 +534,7 @@ button:focus-visible {
 .industry-card .shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 20%, rgba(0, 0, 0, 0.88) 100%);
+  background: linear-gradient(180deg, transparent 15%, rgba(0, 0, 0, 0.78) 100%);
 }
 
 .industry-card .body {
@@ -543,7 +542,8 @@ button:focus-visible {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 0.9rem 1rem;
+  padding: 0.85rem 0.95rem;
+  color: #fff;
 }
 
 .industry-card.selected {
@@ -553,55 +553,76 @@ button:focus-visible {
 .industry-card h3 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 0.98rem;
+  color: #fff;
 }
 
 .industry-card p {
   margin: 0.2rem 0 0;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .question-block {
-  margin-top: 1rem;
-  padding: 1rem 1.1rem;
+  margin-top: 0.75rem;
+  padding: 0.85rem 1rem;
   border-radius: var(--radius);
   border: 1px solid var(--border-strong);
-  background: linear-gradient(180deg, var(--gold-dim), transparent);
+  background: var(--gold-dim);
 }
 
 .question-block strong {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.15rem;
-  margin-bottom: 0.65rem;
+  font-size: 1.05rem;
+  margin-bottom: 0.55rem;
   letter-spacing: -0.02em;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+  margin-top: 0.55rem;
+}
+
+.info-grid .card {
+  padding: 0.75rem 0.85rem;
+}
+
+.info-grid h3 {
+  font-size: 0.88rem;
+  color: var(--gold-deep);
+}
+
+.info-grid p {
+  font-size: 0.86rem;
 }
 
 .checklist {
   display: grid;
-  gap: 0.65rem;
+  gap: 0.55rem;
 }
 
 .check-item {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 0.85rem;
+  gap: 0.75rem;
   align-items: start;
-  padding: 0.9rem 1.05rem;
+  padding: 0.8rem 0.95rem;
   border-radius: var(--radius);
   background: var(--surface);
   border: 1px solid var(--border);
 }
 
 .check-num {
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 10px;
   display: grid;
   place-items: center;
   background: var(--gold-dim);
-  color: var(--gold);
+  color: var(--gold-deep);
   font-family: var(--font-display);
   font-weight: 800;
 }
@@ -609,14 +630,14 @@ button:focus-visible {
 .timer-wrap {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.15rem;
   flex-wrap: wrap;
 }
 
 .timer-ring {
   --p: 100;
-  width: 130px;
-  height: 130px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   background:
     radial-gradient(closest-side, var(--bg-elevated) 78%, transparent 79% 100%),
@@ -624,8 +645,9 @@ button:focus-visible {
   display: grid;
   place-items: center;
   font-family: var(--font-display);
-  font-size: 1.7rem;
+  font-size: 1.55rem;
   font-weight: 800;
+  border: 1px solid var(--border);
 }
 
 .notes-panel {
@@ -636,7 +658,7 @@ button:focus-visible {
   max-height: min(46vh, 420px);
   overflow: auto;
   z-index: 20;
-  background: rgba(16, 17, 20, 0.96);
+  background: rgba(255, 255, 255, 0.98);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius);
   padding: 1rem 1.1rem;
@@ -646,7 +668,7 @@ button:focus-visible {
 .notes-panel h4 {
   margin: 0 0 0.65rem;
   font-family: var(--font-display);
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 
 .notes-panel p,
@@ -665,7 +687,7 @@ button:focus-visible {
 .help-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(246, 244, 239, 0.72);
   z-index: 30;
   display: grid;
   place-items: center;
@@ -678,6 +700,7 @@ button:focus-visible {
   border: 1px solid var(--border-strong);
   border-radius: var(--radius);
   padding: 1.5rem;
+  box-shadow: var(--shadow);
 }
 
 .help-card h3 {
@@ -694,7 +717,7 @@ button:focus-visible {
 
 .help-card dt {
   font-family: var(--font-mono);
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 
 .help-card dd {
@@ -728,7 +751,6 @@ button:focus-visible {
 .section-dot.on {
   background: var(--gold);
   border-color: var(--gold);
-  box-shadow: 0 0 10px rgba(255, 187, 51, 0.6);
 }
 
 .nav-group {
@@ -736,59 +758,30 @@ button:focus-visible {
   gap: 0.5rem;
 }
 
-.full-bleed-card {
-  position: relative;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--border);
-  min-height: 220px;
-  box-shadow: var(--shadow);
-}
-
-.full-bleed-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  inset: 0;
-}
-
-.full-bleed-card .shade {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(7, 7, 8, 0.88), rgba(7, 7, 8, 0.35));
-}
-
-.full-bleed-card .content {
-  position: relative;
-  z-index: 1;
-  padding: 1.5rem;
-  max-width: 34ch;
-}
-
 .finale {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
   letter-spacing: -0.03em;
   line-height: 1.15;
-  margin: 0.35rem 0;
+  margin: 0.3rem 0;
 }
 
 .brief-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.65rem;
+  gap: 0.55rem;
 }
 
 @media (max-width: 800px) {
-  .brief-grid {
+  .brief-grid,
+  .info-grid {
     grid-template-columns: 1fr;
   }
 }
 
 .brief-q {
-  padding: 0.85rem 1rem;
+  padding: 0.75rem 0.9rem;
   border-radius: var(--radius-sm);
   background: var(--surface);
   border: 1px solid var(--border);
@@ -796,13 +789,39 @@ button:focus-visible {
 
 .brief-q .n {
   font-family: var(--font-mono);
-  color: var(--gold);
-  font-size: 0.75rem;
+  color: var(--gold-deep);
+  font-size: 0.72rem;
 }
 
 .brief-q strong {
   display: block;
-  margin-top: 0.2rem;
+  margin-top: 0.15rem;
   font-family: var(--font-display);
   letter-spacing: -0.02em;
+  font-size: 0.95rem;
+}
+
+.map-detail {
+  margin-top: 0.85rem;
+  padding: 0.95rem 1.05rem;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.map-detail h3 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+}
+
+.risk-list {
+  margin: 0.35rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.risk-list li {
+  margin-bottom: 0.2rem;
 }

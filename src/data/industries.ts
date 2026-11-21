@@ -10,6 +10,9 @@ export type Industry = {
   dataNeeds: string[]
   help: string
   risks: string[]
+  example: string
+  whyItMatters: string
+  humanRole: string
 }
 
 export const industries: Industry[] = [
@@ -21,10 +24,20 @@ export const industries: Industry[] = [
     image: '/images/healthcare.jpg',
     uses: ['Detecting disease from scans', 'Drug discovery', 'AI assistants for doctors'],
     question: 'Should an AI ever make a medical decision without a doctor?',
-    problem: 'Doctors need faster, more accurate ways to spot disease and choose treatments.',
-    dataNeeds: ['Medical images', 'Patient history', 'Lab results', 'Research papers'],
-    help: 'AI can flag patterns humans might miss and speed up analysis — especially on scans.',
-    risks: ['False positives/negatives', 'Biased training data', 'Privacy of health records', 'Over-trusting the model'],
+    problem:
+      'Doctors must diagnose and treat under time pressure. Some patterns in scans or records are easy to miss, and new drugs take years to discover.',
+    dataNeeds: ['Medical images (X-ray, CT, MRI)', 'Patient history', 'Lab results', 'Research studies'],
+    help: 'AI can highlight suspicious areas on scans, suggest possible diagnoses, and help researchers test drug ideas much faster.',
+    risks: [
+      'False alarms or missed disease',
+      'Bias if training data underrepresents some groups',
+      'Very sensitive private health data',
+      'Doctors (or patients) trusting AI too much',
+    ],
+    example:
+      'An AI flags a possible tumour on a chest scan in seconds. A radiologist still reviews it before anyone starts treatment.',
+    whyItMatters: 'Wrong medical decisions can change — or end — a life.',
+    humanRole: 'Doctors should confirm diagnosis, explain options, and take final responsibility.',
   },
   {
     id: 'finance',
@@ -34,10 +47,20 @@ export const industries: Industry[] = [
     image: '/images/finance.jpg',
     uses: ['Fraud detection', 'Credit scoring', 'Algorithmic trading'],
     question: 'What happens if an AI incorrectly flags someone as fraudulent?',
-    problem: 'Banks must spot fraud fast and decide who gets credit — at massive scale.',
-    dataNeeds: ['Transactions', 'Spending patterns', 'Credit history', 'Account behaviour'],
-    help: 'AI can score risk in milliseconds and catch unusual activity before money is lost.',
-    risks: ['Wrongly frozen accounts', 'Credit discrimination', 'Opaque decisions', 'Market instability from trading bots'],
+    problem:
+      'Banks process millions of payments daily. They must stop fraud fast and decide who gets loans — without checking every case by hand.',
+    dataNeeds: ['Transactions', 'Spending patterns', 'Credit history', 'Device / login behaviour'],
+    help: 'AI spots unusual activity in milliseconds and ranks how risky a borrower looks based on past patterns.',
+    risks: [
+      'Innocent accounts locked',
+      'Unfair credit decisions',
+      'People cannot understand why they were rejected',
+      'Trading bots can amplify market crashes',
+    ],
+    example:
+      'You travel abroad and buy a phone. The bank’s AI freezes your card because the purchase looks “unusual.” You are stranded without money until you prove it was you.',
+    whyItMatters: 'Money access affects housing, jobs, travel, and daily life.',
+    humanRole: 'Humans should handle appeals, review edge cases, and set fair rules for the model.',
   },
   {
     id: 'education',
@@ -47,10 +70,20 @@ export const industries: Industry[] = [
     image: '/images/education.jpg',
     uses: ['Personalized learning', 'Automated feedback', 'AI tutors', 'Student analytics'],
     question: 'Should AI be allowed to grade students?',
-    problem: 'Students learn at different speeds; teachers cannot personalize everything alone.',
-    dataNeeds: ['Answers & essays', 'Click/activity logs', 'Past performance', 'Curriculum goals'],
-    help: 'AI can adapt practice, give instant feedback, and free teachers for deeper support.',
-    risks: ['Unfair grading', 'Privacy of student data', 'Less human mentoring', 'Students gaming the system'],
+    problem:
+      'Students learn at different speeds. Teachers cannot give every person instant feedback on every task.',
+    dataNeeds: ['Answers and essays', 'Practice activity logs', 'Past scores', 'Curriculum goals'],
+    help: 'AI can adapt practice difficulty, give quick feedback, and free teachers for mentoring and complex teaching.',
+    risks: [
+      'Unfair or inconsistent grading',
+      'Student privacy concerns',
+      'Less human encouragement / mentoring',
+      'Students gaming the AI instead of learning',
+    ],
+    example:
+      'An AI tutor notices you keep missing algebra word problems and assigns extra practice — but a teacher still decides your final report grade.',
+    whyItMatters: 'Grades and feedback shape confidence, opportunities, and future pathways.',
+    humanRole: 'Teachers should own high-stakes grades, pastoral care, and judgment about student growth.',
   },
   {
     id: 'transport',
@@ -60,10 +93,20 @@ export const industries: Industry[] = [
     image: '/images/transport.jpg',
     uses: ['Self-driving cars', 'Traffic prediction', 'Route optimization'],
     question: 'Who is responsible when an autonomous car makes the wrong decision?',
-    problem: 'Roads are dangerous and congested; humans make driving mistakes every day.',
-    dataNeeds: ['Camera/lidar sensors', 'Maps', 'Traffic data', 'Driver behaviour history'],
-    help: 'AI can react faster than humans, optimize routes, and reduce some crash types.',
-    risks: ['Edge-case accidents', 'Unclear liability', 'Sensor failure', 'Hacking / system faults'],
+    problem:
+      'Driving is dangerous and congested. Humans get tired, distracted, or make split-second mistakes.',
+    dataNeeds: ['Cameras and lidar', 'HD maps', 'Live traffic data', 'Past driving behaviour'],
+    help: 'AI can react faster than people, suggest better routes, and predict traffic jams before they form.',
+    risks: [
+      'Rare “edge case” crashes',
+      'Unclear legal responsibility',
+      'Sensor failure in bad weather',
+      'Hacking or software faults',
+    ],
+    example:
+      'A self-driving car chooses between braking hard or swerving. Later, lawyers argue: was it the carmaker, the software company, or the passenger?',
+    whyItMatters: 'Transport decisions affect safety for passengers, pedestrians, and whole cities.',
+    humanRole: 'Laws and companies must define who is accountable — and when a human must take over.',
   },
   {
     id: 'military',
@@ -73,9 +116,19 @@ export const industries: Industry[] = [
     image: '/images/military.jpg',
     uses: ['Surveillance', 'Autonomous weapons', 'Target identification'],
     question: 'Should an AI ever be allowed to decide who to attack?',
-    problem: 'Security agencies process huge streams of sensor data under time pressure.',
-    dataNeeds: ['Satellite/video feeds', 'Sensor networks', 'Identity databases', 'Mission rules'],
-    help: 'AI can filter noise, flag threats faster, and support human operators.',
-    risks: ['Wrongful targeting', 'No clear accountability', 'Escalation without human judgment', 'Mass surveillance abuse'],
+    problem:
+      'Security systems collect enormous streams of video and sensor data. Humans cannot watch everything in real time.',
+    dataNeeds: ['Satellite and camera feeds', 'Sensor networks', 'Identity databases', 'Mission rules'],
+    help: 'AI can filter noise, flag possible threats faster, and support operators under pressure.',
+    risks: [
+      'Wrongful targeting',
+      'No clear person to blame',
+      'Conflict escalating without human judgment',
+      'Mass surveillance used against civilians',
+    ],
+    example:
+      'An AI marks a vehicle as a threat from drone footage. If a weapon fires automatically, who is responsible for a mistake?',
+    whyItMatters: 'These systems can involve life, death, war, and civil rights.',
+    humanRole: 'Meaningful human control should stay required for any use of force.',
   },
 ]
